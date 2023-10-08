@@ -1,0 +1,36 @@
+{% extends 'shop/basic.html' %}
+
+
+{% block title %} {{product.Product_name}} - My Awesome Cart{% endblock %}
+{% block style%}
+
+#btn{
+display: flex;
+justify-content:center;
+}
+{% endblock%}
+{% block body%}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="row">
+                <img src="/media/{{product.image}}" alt="">
+            </div>
+            <div class="col mt-3" id="btn">
+                <button class="btn btn-primary mx-3">Buy Now</button>
+                <button class="btn btn-primary ">Add to cart</button>
+            </div>
+
+
+        </div>
+        <div class="col-md-8">
+            <h5>{{product.Product_name}}</h5>
+            <p><b>Rs.{{product.price}}</b></p>
+            <p>{{product.desc}}</p>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

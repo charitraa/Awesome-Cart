@@ -1,0 +1,137 @@
+{% extends 'shop/basic.html' %}
+
+
+{% block title %}Product Veiw{% endblock %}
+{% block style%} {% endblock%}
+{% block body%}
+
+<div class=" col-6 my-4 mx-5">
+    <div class="col">
+        <h2>
+            Step 1 - My Awesome Cat Express Checkout - Review Your Cart Items</h2>
+
+        <div>
+            <ul class="list-group" id="items">
+
+            </ul>
+        </div>
+    </div>
+    <div class="col my-4">
+        <h2>Step2 - Enter Adress and Other Details: </h2>
+        <form action="/shop/checkout/" method="post" class="row my-4 g-3 needs-validation" novalidate>
+            {% csrf_token %}
+            <input type="hidden" id="itemsJson" name="itemsJson">
+            <div class="col-md-6">
+                <label for="fname" class="form-label">First name</label>
+                <input type="text" class="form-control" id="fname" name="fname" value="" required>
+                <div class="invalid-feedback">
+                    Please provide a valid first name.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="lname" class="form-label">Last name</label>
+                <input type="text" class="form-control" id="lname" name="lname" value="" required>
+                <div class="invalid-feedback">
+                    Please provide a valid last name.
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="email" class="form-label">Email</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="email" name="email" aria-describedby="inputGroupPrepend"
+                        required>
+                    <div class="invalid-feedback">
+                        Please provide a valid Email address
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" name="phone" required>
+                <div class="invalid-feedback">
+                    Please provide a valid Phone number.
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" name="city" required>
+                <div class="invalid-feedback">
+                    Please provide a valid city.
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="province" class="form-label">Province</label>
+                <input type="text" class="form-control" id="province" name="province" required>
+                <div class="invalid-feedback">
+                    Please provide a valid Province.
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label for="zip" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="zip" name="zip" required>
+                <div class="invalid-feedback">
+                    Please provide a valid zip.
+                </div>
+            </div>
+            <div class="col-12">
+
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Place Order</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<Script>
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    }
+    else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+
+    }
+    sum = 0
+    for (item in cart) {
+
+        let name = cart[item][1]
+        let qty = cart[item][0]
+        sum = sum + qty
+        mystr = `<li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${name}
+                    <span class="badge bg-primary rounded-pill">${qty}</span>
+                </li>`
+
+        $('#items').append(mystr)
+    }
+    document.getElementById('cart').innerHTML = sum;
+    $('#itemsJson').val(JSON.stringify(cart));
+    {% if thank %}
+    alert("Thank you for shopping. you can find your Product with product {{id}} . with tracker feature")
+    localStorage.clear()
+    document.location = 'https://127.0.0.0:8000';
+    {% endif %}
+</Script>
+
+
+{% endblock%}

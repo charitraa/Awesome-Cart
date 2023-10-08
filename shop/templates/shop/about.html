@@ -1,0 +1,81 @@
+{% extends 'shop/basic.html' %}
+
+{% block title %} About Us {% endblock %}
+
+{% block body %}
+
+<main role="main">
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3 fw-bold">My Awesome Cart</h1>
+            <p>My Awssome Cart is an American multinational technology company focusing on e-commerce, cloud computing,
+                online advertising, digital streaming, and artificial intelligence. It has been often referred to as
+                "one of the most influential economic and cultural forces in the world", and is often regarded as one of
+                the world's most valuable brands. It is considered to be one of the Big Five American technology
+                companies, alongside Alphabet (parent company of Google), Apple, Meta and Microsoft.
+                <br><br>
+
+                Amazon was founded by Jeff Bezos from his garage in Bellevue, Washington, on July 5, 1994. Initially an
+                online marketplace for books, it has expanded into a multitude of product categories, a strategy that
+                has earned it the moniker The Everything Store. It has multiple subsidiaries including Amazon Web
+                Services (cloud computing), Zoox (autonomous vehicles), Kuiper Systems (satellite Internet), and Amazon
+                Lab126 (computer hardware R&D). Its other subsidiaries include Ring, Twitch, IMDb, and Whole Foods
+                Market. Its acquisition of Whole Foods in August 2017 for US$13.4 billion substantially increased its
+                footprint as a physical retailer.<br><br>
+            </p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                    mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
+                    mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
+                    porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                    ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+
+        <hr>
+
+    </div> <!-- /container -->
+
+</main>
+
+<footer class="container">
+    <p>&copy; Company 2017-2020</p>
+</footer>
+
+{% endblock %}
+{% block script%}
+<script>
+    if (localStorage.getItem('cart') == null) {
+        var cart = {};
+    }
+    else {
+        cart = JSON.parse(localStorage.getItem('cart'));
+        document.getElementById('cart').innerHTML = Object.keys(cart).length
+
+    }
+
+</script>
+{% endblock%}
