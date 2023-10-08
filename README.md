@@ -1,12 +1,11 @@
-# TextUtils
-This Repo includes the backend project name Text Utils developed by Python framework i.e. Django.
+# Awesome Cart
 
 # Getting Started
 
 First clone the repository from Github and switch to the new directory:
   ```shell
-    $ git clone https://github.com/charitraa/TextUtils.git
-    $ cd TextUtils
+    $ gh repo clone charitraa/Awesome-Cart
+    $ cd Awesome-Cart
   ```
 
 ## Installation
@@ -23,29 +22,29 @@ Then install virtualenv:
 sudo pip3 install virtualenv
 ```
 
-Create a virtualenv for TextUtils and activate it:
+Create a virtualenv for Awesome-Cart and activate it:
 
 ```shell
-virtualenv -p <PYTHON_3_PATH> ~/virtualenvs/TextUtils
-source ~/virtualenvs/TextUtils/bin/activate
+virtualenv -p <PYTHON_3_PATH> ~/virtualenvs/Awesome-Cart
+source ~/virtualenvs/Awesome-Cart/bin/activate
 ```
 
 Install Django into the virtualenv:
 
 ```shell
-~/virtualenvs/TextUtils/bin/pip3 install Django
+~/virtualenvs/Awesome-Cart/bin/pip3 install Django
 ```
     
 Activate the virtualenv for your project.
     
 Now, install the rest of the packages that are required by your Django project:
   ```shell
-~/virtualenvs/TextUtils/bin/pip3 install -r requirements.txt
+~/virtualenvs/Awesome-Cart/bin/pip3 install -r requirements.txt
   ```
     
 Setup the database. Locally, this will create a new sqllite database
 ```shell
-~/virtualenvs/TextUtils/bin/python3 manage.py migrate
+~/virtualenvs/Awesome-Cart/bin/python3 manage.py migrate
     OUTPUT:
 Operations to perform:
   Apply all migrations: contenttypes, sessions, admin, auth
@@ -59,7 +58,7 @@ Running migrations:
 Start the Django server:
 
 ```shell
-~/virtualenvs/TextUtils/bin/python3 manage.py runserver
+~/virtualenvs/Awesome-Cart/bin/python3 manage.py runserver
 ```
 
 Your Django project is now live, locally. In your browser, go to: http://localhost:8000.
