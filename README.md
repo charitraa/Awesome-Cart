@@ -4,7 +4,7 @@
 
 First clone the repository from Github and switch to the new directory:
   ```shell
-    $ gh repo clone charitraa/Awesome-Cart
+    $ git clone charitraa/Awesome-Cart.git
     $ cd Awesome-Cart
   ```
 
